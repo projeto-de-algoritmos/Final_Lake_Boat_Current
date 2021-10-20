@@ -13,7 +13,7 @@
 
 ## Sobre
 
-Baseado no problema ![11573](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2620) do Online Judge.
+Baseado no problema [11573](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2620) do Online Judge.
 
 ## Screenshots
 
