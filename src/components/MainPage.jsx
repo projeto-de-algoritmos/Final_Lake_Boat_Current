@@ -14,7 +14,7 @@ const MainPage = () => {
     for (let i = 0; i < ROW; i++) {
       map[i] = [];
       for (let j = 0; j < COL; j++) {
-        map[i][j] = Math.floor(Math.random() * 10000) % 7;
+        map[i][j] = Math.floor(Math.random() * 10000) % 8;
       }
     }
     setMap(map);
