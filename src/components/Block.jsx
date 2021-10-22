@@ -1,8 +1,8 @@
-import React, { memo } from "react";
+import React from "react";
 import "./Block.css";
-import { IconButton, Button, makeStyles } from "@material-ui/core";
+import { IconButton, makeStyles } from "@material-ui/core";
 import { WiStrongWind } from "react-icons/wi";
-import clsx from "clsx";
+// import clsx from "clsx";
 
 const useStyles = makeStyles({
   button: {

@@ -1,4 +1,4 @@
-import { Container, Paper, ThemeProvider, Typography } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core";
 import MainPage from "./components/MainPage";
 
 import Theme from "./theme";

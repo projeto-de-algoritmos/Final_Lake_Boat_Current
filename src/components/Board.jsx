@@ -1,10 +1,14 @@
-import React, { memo } from "react";
+import React from "react";
 import Block from "./Block";
 
 const Row = ({ row, i, onClick }) => (
   <div>
     {row.map((col, j) => (
-      <Block key={col.key} orientation={col} onClick={() => onClick(i, j)} />
+      <Block
+        key={"block" + i + j}
+        orientation={col}
+        onClick={() => onClick(i, j)}
+      />
     ))}
   </div>
 );
