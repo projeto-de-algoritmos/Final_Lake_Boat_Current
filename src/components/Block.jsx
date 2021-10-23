@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Block.css";
 import { IconButton, makeStyles } from "@material-ui/core";
 import { WiStrongWind } from "react-icons/wi";
-// import clsx from "clsx";
+import clsx from "clsx";
 
 const useStyles = makeStyles({
   button: {
@@ -17,6 +17,19 @@ const useStyles = makeStyles({
     "&&:hover": {
       backgroundColor: "#3E6E8C",
     },
+  },
+  path: {
+    backgroundColor: "#09EE9A",
+  },
+  start: {
+    background: "#41D9D9",
+  },
+  end: {
+    backgroundColor: "#F21DA8",
+  },
+  startEnd: {
+    background:
+      "linear-gradient(90deg, rgba(65,217,217,1) 0%, rgba(242,29,168,1) 100%)",
   },
 });
 
@@ -34,13 +47,21 @@ const ORIENTATION = {
   7: "rotate(225deg)",
 };
 
-const Block = ({ onClick, orientation }) => {
+const Block = ({ onClick, orientation, isStart, isEnd, isPath }) => {
   const classes = useStyles();
 
   return (
-    <IconButton classes={{ root: classes.button }} onClick={onClick}>
+    <IconButton
+      className={clsx(classes.button, {
+        [classes.path]: isPath,
+        [classes.start]: isStart,
+        [classes.end]: isEnd,
+        [classes.startEnd]: isStart && isEnd,
+      })}
+      onClick={onClick}
+    >
       <WiStrongWind
-        color="#EBEFF2"
+        color={isPath ? "#002736" : "#EBEFF2"}
         style={{ transform: ORIENTATION[orientation] }}
       />
     </IconButton>

@@ -4,8 +4,21 @@ function isBorder(x, y) {
   return x < 0 || x >= ROW || y < 0 || y >= COL;
 }
 
+function recoverPath(parent, start, end) {
+  let path = [{ x: end.x, y: end.y }];
+  let { x, y } = end;
+
+  while (!(x === start.x && y === start.y)) {
+    let { x: nX, y: nY } = parent[x][y];
+    path.unshift({ x: nX, y: nY });
+    x = nX;
+    y = nY;
+  }
+
+  return path;
+}
+
 export function BFS01(map, start, end) {
-  // TODO PATH
   let queue = [start];
   let distance = [];
   let parent = [];
@@ -46,5 +59,7 @@ export function BFS01(map, start, end) {
     }
   }
 
-  return { parent, distance: distance[end.x][end.y] };
+  let path = recoverPath(parent, start, end);
+
+  return { path, distance: distance[end.x][end.y] };
 }

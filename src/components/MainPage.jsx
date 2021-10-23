@@ -17,6 +17,7 @@ const MainPage = () => {
   const [end, setEnd] = useState({ x: -1, y: -1 });
   const [clickCount, setClickCount] = useState(true);
   const [energyCount, setEnergyCount] = useState(-1);
+  const [path, setPath] = useState(new Map());
 
   const createMap = () => {
     const map = [];
@@ -61,6 +62,12 @@ const MainPage = () => {
     if (start.x !== -1 && end.x !== -1) {
       const res = BFS01(map, start, end);
       setEnergyCount(res.distance);
+      const pathMap = new Map();
+      for (let i = 0; i < res.path.length; i++) {
+        const node = res.path[i];
+        pathMap.set(`x${node.x}y${node.y}`, res.path[i]);
+      }
+      setPath(pathMap);
     }
   }, [start, end, map]);
 
@@ -88,7 +95,12 @@ const MainPage = () => {
 
       <div className="main-container">
         <div>
-          <Board map={map} onClick={handleBlockClick} />
+          <Board
+            map={map}
+            onClick={handleBlockClick}
+            selected={{ start, end }}
+            path={path}
+          />
         </div>
       </div>
     </>
