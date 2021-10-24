@@ -65,7 +65,7 @@ const MainPage = () => {
       const pathMap = new Map();
       for (let i = 0; i < res.path.length; i++) {
         const node = res.path[i];
-        pathMap.set(`x${node.x}y${node.y}`, res.path[i]);
+        pathMap.set(`x${node.x}y${node.y}`, { ...res.path[i], i: i });
       }
       setPath(pathMap);
     }

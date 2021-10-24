@@ -10,6 +10,9 @@ const Row = ({ row, i, onClick, selected, path }) => (
         isStart={selected.start.x === i && selected.start.y === j}
         isEnd={selected.end.x === i && selected.end.y === j}
         isPath={path.has(`x${i}y${j}`)}
+        pathIndex={
+          path.has(`x${i}y${j}`) ? path.get(`x${i}y${j}`).i : undefined
+        }
         onClick={() => onClick(i, j)}
         path={path}
       />

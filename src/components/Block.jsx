@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import "./Block.css";
-import { IconButton, makeStyles } from "@material-ui/core";
+import { Badge, IconButton, makeStyles } from "@material-ui/core";
 import { WiStrongWind } from "react-icons/wi";
 import clsx from "clsx";
 
@@ -31,6 +31,10 @@ const useStyles = makeStyles({
     background:
       "linear-gradient(90deg, rgba(65,217,217,1) 0%, rgba(242,29,168,1) 100%)",
   },
+  badge: {
+    color: "#F2B705",
+    backgroundColor: "#0A1626",
+  },
 });
 
 /*7 0 1
@@ -47,24 +51,33 @@ const ORIENTATION = {
   7: "rotate(225deg)",
 };
 
-const Block = ({ onClick, orientation, isStart, isEnd, isPath }) => {
+const Block = ({ onClick, orientation, isStart, isEnd, isPath, pathIndex }) => {
   const classes = useStyles();
 
   return (
-    <IconButton
-      className={clsx(classes.button, {
-        [classes.path]: isPath,
-        [classes.start]: isStart,
-        [classes.end]: isEnd,
-        [classes.startEnd]: isStart && isEnd,
-      })}
-      onClick={onClick}
+    <Badge
+      badgeContent={pathIndex >= 0 ? pathIndex + 1 : undefined}
+      showZero
+      classes={{ colorPrimary: classes.badge }}
+      overlap="circular"
+      color="primary"
+      invisible={pathIndex !== 0 && !pathIndex}
     >
-      <WiStrongWind
-        color={isPath ? "#002736" : "#EBEFF2"}
-        style={{ transform: ORIENTATION[orientation] }}
-      />
-    </IconButton>
+      <IconButton
+        className={clsx(classes.button, {
+          [classes.path]: isPath,
+          [classes.start]: isStart,
+          [classes.end]: isEnd,
+          [classes.startEnd]: isStart && isEnd,
+        })}
+        onClick={onClick}
+      >
+        <WiStrongWind
+          color={isPath ? "#002736" : "#EBEFF2"}
+          style={{ transform: ORIENTATION[orientation] }}
+        />
+      </IconButton>
+    </Badge>
   );
 };
 
