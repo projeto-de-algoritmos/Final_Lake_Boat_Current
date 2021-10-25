@@ -15,7 +15,19 @@
 
 Baseado no problema [11573](https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2620) do Online Judge.
 
+Consiste numa simulação de um lago, em que cada posição do tabuleiro representa um espaço no lago, e nesse espaço existe uma correnteza em uma das 8 direções cardeais.
+
+Existe um barquinho que vai sair do ponto de início (posição em azul) e vai atravessar o lago até a posição de destino (posição em rosa). O barquinho tem duas opções, utilizar a correnteza para ir para a direção sem gastar energia, ou gastar 1 de energia para ir para qualquer direção.
+
+A ideia é que ao clicar em duas posições do tabuleiro, o algoritmo deve retornar o caminho com menor custo energético do começo ao fim.
+
 ## Screenshots
+
+![foto_1](./assets/f1.jpg)
+
+![foto_2](./assets/f2.jpg)
+
+![foto_3](./assets/f3.jpg)
 
 ## Instalação
 
@@ -33,6 +45,6 @@ Inicie o servidor local:
 
 Abra navegador em `localhost:3000`
 
-## Outros
-
 ## Vídeo
+
+O vídeo se encontra [aqui](https://drive.google.com/file/d/1qrCQ6t7DpKTRMgjcLrxNBN5oia7kz-8u/view?usp=sharing)
